@@ -1,0 +1,20 @@
+{
+  "name": "rabbit-hole",
+  "version": "1.0.0",
+  "description": "A request injection proxy",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "author": "Kirill Prostyakov",
+  "license": "ISC",
+  "repository": "https://github.com/kprostyakov/rabbit-hole.git",
+  "dependencies": {
+    "conditional-middleware": "^0.2.0",
+    "connect": "^3.6.5",
+    "http-proxy": "^1.16.2",
+    "http-proxy-middleware": "^0.17.4",
+    "http-proxy-response-rewrite": "0.0.1"
+  }
+}
