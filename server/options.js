@@ -20,6 +20,9 @@ const options = {
       pathRewrite: {
           '^/gap': '',
       },
+      cookieDomainRewrite: {
+        '.gap.com': 'localhost'
+      },
       changeOrigin: true,
       logLevel: 'debug',
       onProxyRes: (proxyRes, req, res) =>{
@@ -30,6 +33,7 @@ const options = {
         const gapPipeline = editPipeline(changes.gap)
         ct = proxyRes.headers['content-type']
         if (ct && (ct.match('text')||ct.match('javascript'))) {
+            delete proxyRes.headers['content-length']
             modifyResponse(res, proxyRes.headers['content-encoding'], (body) => gapPipeline(body))
         }
       }
